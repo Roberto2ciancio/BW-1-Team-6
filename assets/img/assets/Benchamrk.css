@@ -12,9 +12,9 @@ body {
   
   /* Contenitore del timer, posizionato a destra della pagina */
   #timer-container {
-    position: absolute; /* Posizionamento assoluto */
-    right: 20px; /* Aggiungi spazio a destra */
-    top: 20%; /* Posiziona al centro verticalmente */
+    position: absolute;
+    right: 20px;
+    top: 20%;
     transform: translateY(-50%); /* Centro perfetto verticalmente */
     text-align: center;
   }
