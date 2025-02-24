@@ -21,7 +21,16 @@
           <p class="percentage">66.7%</p>
           <p class="questions">4/6 questions</p>
         </div>
-        <div class="donut"></div>
+        <div class="chart-container"> 
+            <canvas id="myChart"></canvas>  
+              <div class="chart-text">
+                <p><strong >Congratulations!</strong><br>
+                  <span class="pass">You passed the exam.</span><br>
+                  We'll send you the certificate in a few minutes.<br>
+                  Check your email (including promotions/spam folder).
+                </p>
+              </div>
+        </div>
         <div class="wrong">
           <h2>Wrong</h2>
           <p class="percentage">33.3%</p>
@@ -32,5 +41,7 @@
     <footer>
       <button>RATE US</button>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src='/Script/scriptResults.js'></script>
   </body>
 </html>
