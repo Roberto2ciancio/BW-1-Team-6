@@ -1,16 +1,4 @@
-/*document.addEventListener('DOMContentLoaded', () => {
-    let timeLeft = 61; 
-    let countdown;
-  countdown = setInterval(() => {
-      if (timeLeft <= 0) {
-        clearInterval(countdown); 
-        alert("Il tempo è scaduto!");
-      } else {
-        timeLeft--;
-        document.getElementById('timer').querySelector('span').textContent = timeLeft;
-      }
-    }, 1000);})*/
-    let timeLeft = 61;
+let timeLeft = 61;
 let countdown;
 const cerchioElement = document.getElementById('cerchio');
 const timerElement = document.getElementById('timer').querySelector('span');
