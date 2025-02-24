@@ -14,7 +14,7 @@ body {
   #timer-container {
     position: absolute; /* Posizionamento assoluto */
     right: 20px; /* Aggiungi spazio a destra */
-    top: 25%; /* Posiziona al centro verticalmente */
+    top: 20%; /* Posiziona al centro verticalmente */
     transform: translateY(-50%); /* Centro perfetto verticalmente */
     text-align: center;
   }
@@ -76,4 +76,8 @@ ul {
     text-align: end;
     font-size:x-small ;
     margin-right: 10px;
+  }
+  footer h1{
+    
+
   }
