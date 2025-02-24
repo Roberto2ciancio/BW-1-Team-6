@@ -14,7 +14,7 @@ body {
   #timer-container {
     position: absolute; /* Posizionamento assoluto */
     right: 20px; /* Aggiungi spazio a destra */
-    top: 50%; /* Posiziona al centro verticalmente */
+    top: 25%; /* Posiziona al centro verticalmente */
     transform: translateY(-50%); /* Centro perfetto verticalmente */
     text-align: center;
   }
@@ -51,7 +51,28 @@ body {
   }
   
   nav {
-    text-align: end;
+    text-align:center;
+
+  }
+
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding:50px;
+    list-style: none; 
   }
   
+  li {
+    width: 48%;
+    border: 3px white solid;
+    margin: 3px;
+    color: white;
+  }
   
+  p {
+    color: white;
+    text-align: end;
+    font-size:x-small ;
+    margin-right: 10px;
+  }
