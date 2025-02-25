@@ -60,7 +60,7 @@ new Chart(ctx, {
     type: "doughnut",
     data: {
         datasets: [
-            {
+            {   label: "%risposte",
                 data: [75, 25], // Adjust percentage values
                 backgroundColor: ["#00ffff", "#c2128d"], // Colors
                 borderWidth: 0
