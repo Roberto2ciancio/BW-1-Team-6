@@ -3,7 +3,7 @@
     position: absolute;
     width: 100%;
     height: 100vh;
-    background-image: url("../assets/img/assets/bg.jpg");
+    background-image: url("/assets/img/assets/bg.jpg");
     background-size: cover;
 background-position: center;
 text-align: center
@@ -80,9 +80,12 @@ input[type="button"][data-answer="True"] {
 input[type="button"][data-answer="False"] {
     background-color: red;
 }
-
-input[type="button"][data-answer="True"]:hover {
-    background-color: green;
+.result {
+    width: 300px;
+    height: 60px;
+    text-align: center;
+    color: aliceblue;
+    background-position: center;
 }
 
 input[type="button"][data-answer="False"]:hover {
@@ -112,6 +115,11 @@ input[type="button"] {
 
 
 
+
 footer{
     text-align: center;
+}
+
+.question {
+    font-weight: bolder;
 }
