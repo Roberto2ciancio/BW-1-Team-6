@@ -173,12 +173,17 @@ let score = 0
             checkAnswer(falseButton, question.correct_answer)
         })
 
+        const quiz =document.getElementById("quiz")
+         function() {
+          quiz.classList.add(quizData)
+        }
+
         questionDiv.appendChild(trueButton)
         questionDiv.appendChild(falseButton)
+        quiz.appendChild(questionDiv)
     }
 
     
-    quiz.appendChild(questionDiv)
 }
 
 
