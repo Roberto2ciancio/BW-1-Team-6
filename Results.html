@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Results Page</title>
+    <link rel="stylesheet" href="/Css style/resultstyle.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo-container">
+        <img src="/assets/img/assets/epicode_logo.png" alt="epicode logo" />
+      </div>
+    </header>
+    <main>
+      <h1>Results</h1>
+      <p>The summary of your answers:</p>
+      <section>
+        <div class="correct">
+          <h2>Correct</h2>
+          <p class="percentage">66.7%</p>
+          <p class="questions">4/6 questions</p>
+        </div>
+        <div class="chart-container"> 
+            <canvas id="myChart"></canvas>  
+              <div class="center-text">
+                <!-- <p><strong >Congratulations!</strong><br>
+                  <span class="pass">You passed the exam.</span><br>
+                  We'll send you the certificate in a few minutes.<br>
+                  Check your email (including promotions/spam folder).
+                </p> -->
+                <h3>Congratulations!<br><span class="pass">You passed the exam.</span></h3>
+                <p>We'll send you the certificate<br>in a few minutes.<br>Check your email (including<br>promotions / spam folder)</p>
+              </div>
+        </div>
+        <div class="wrong">
+          <h2>Wrong</h2>
+          <p class="percentage">33.3%</p>
+          <p class="questions">2/6 questions</p>
+        </section>
+      </div>
+    </main>
+    <footer>
+       <a href="/Feedback.html"><button>Rate US</button></a> 
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src='/Script/scriptResults.js'></script>
+  </body>
+</html>
