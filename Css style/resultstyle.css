@@ -79,3 +79,9 @@ h2 {
     color: #c2128d;
 
   }
+
+
+  a {
+    text-decoration: none;
+    color: white;
+  }
