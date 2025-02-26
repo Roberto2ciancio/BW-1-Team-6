@@ -177,6 +177,10 @@ document.getElementById("submit-quiz").addEventListener("click", () => {
         } else {
             clearInterval(countdown);
             document.getElementById("score").textContent = `RESULT: ${correctAnswersCount} / ${questions.length}`;
+            localStorage.setItem("quizResult", JSON.stringify({
+                correctAnswers: correctAnswersCount,
+                totalQuestions: questions.length
+            }));
         }
     }
 });
