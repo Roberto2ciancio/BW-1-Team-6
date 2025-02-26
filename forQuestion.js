@@ -157,7 +157,7 @@ buttons.forEach((button, index) => {
     });
 });
 
-document.getElementById("next-button").addEventListener("click", () => {
+document.getElementById("submit-quiz").addEventListener("click", () => {
     if (selectedIndex !== -1) {
         selectedAnswers[currentQuestionIndex] = selectedIndex;
         if (currentQuestionIndex < questions.length) {
@@ -176,7 +176,7 @@ document.getElementById("next-button").addEventListener("click", () => {
             selectedIndex = -1; // Resetta selectedIndex
         } else {
             clearInterval(countdown);
-            document.getElementById("result").textContent = `RESULT: ${correctAnswersCount} / ${questions.length}`;
+            document.getElementById("score").textContent = `RESULT: ${correctAnswersCount} / ${questions.length}`;
         }
     }
 });

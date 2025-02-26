@@ -9,11 +9,10 @@
   <body>
     <!-- header con logo -->
     <header id="header container">
-        <img src="./assets/img/assets/epicode_logo.png" alt="Logo epicode">
+      <img src="./assets/img/assets/epicode_logo.png" alt="Logo epicode" />
     </header>
 
     <main>
-
       <!-- timer container -->
 
       <div id="timer-container">
@@ -22,38 +21,47 @@
           <span></span>
         </div>
       </div>
-      <!-- <p>SECONDS REMAINING</p> --> <!-- non so a cosa serviva questo div! l'ho commentato :( -->
+      <!-- <p>SECONDS REMAINING</p> -->
+      <!-- non so a cosa serviva questo div! l'ho commentato :( -->
 
-        <!-- container domanda -->
+      <!-- container domanda -->
 
-        <div id="question"><h1>DOMANDA</h1></div>
-        
-        <!-- container form + inputs + tasto submit se serve -->
-
-        <div id="answerContainer">
-            <form id="form">
-                <input type="button">
-                <input type="button">
-                <input type="button">
-                <input type="button">
-
-                <div id="submitContainer"><button id="submit-quiz">Submit</button></div>
-                
-            </form>
+      <div id="quiz-container">
+        <h2 id="question"></h2>
+        <div id="options">
+          <label
+            ><input type="button" name="answer" value="0" id="answer0" /><span
+              id="answer0-label"
+            ></span></label
+          ><br />
+          <label
+            ><input type="button" name="answer" value="1" id="answer1" /><span
+              id="answer1-label"
+            ></span></label
+          ><br />
+          <label
+            ><input type="button" name="answer" value="2" id="answer2" /><span
+              id="answer2-label"
+            ></span></label
+          ><br />
+          <label
+            ><input type="button" name="answer" value="3" id="answer3" /><span
+              id="answer3-label"
+            ></span></label
+          ><br />
         </div>
-
-
-
+        <div id="submitContainer">
+          <button id="submit-quiz">Submit</button>
+        </div>
+      </div>
     </main>
 
     <!-- footer con punteggio -->
-     
-      <footer><p>QUESTION: <span id="score">0 </span><span id="purple">/ 10</span></p> </footer>
-    
-      
-    <script src="./Script/timer.js"></script>
-    <script src="./Script/benchmark.js"></script>
+
+    <footer>
+      <p>QUESTION: <span id="score"> </span><span id="purple"></span></p>
+    </footer>
+
+    <script src="forQuestion.js"></script>
   </body>
 </html>
-
-
