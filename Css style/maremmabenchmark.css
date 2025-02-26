@@ -71,6 +71,10 @@ input:hover {
     background-color: #900080;
 } 
 
+input:focus {
+    background-color: #900080;
+} 
+
 
 
 
