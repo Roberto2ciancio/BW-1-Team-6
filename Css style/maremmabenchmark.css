@@ -56,6 +56,11 @@ h3, label, input, button {
 }
 
 
+/* inputs STYLE */
+
+
+/*  rimuovere quando necessario dalla linea 62 alla 81, input style verrà sostituida dalla classe .answerButtons creata con JS */
+
 input {
     width: 300px;
     height: 60px;
@@ -75,8 +80,29 @@ input:focus {
     background-color: #900080;
 } 
 
+/* rimuovere fino a qui */
+
+.anwserButtons {
+    width: 300px;
+    height: 60px;
+    border-radius: 30px;
+    background-color: transparent;
+    margin: 10px;
+    border-top: 2px solid whitesmoke;
+    border-left: 2px solid whitesmoke;
+    color: white;
+}
+
+.answerButtons:hover {
+    background-color: #900080;
+}
+
+.answerButtons:focus {
+    background-color: #900080;
+}
 
 
+/* style tasto submit */
 
 #submit-quiz {
     width: 200px;
