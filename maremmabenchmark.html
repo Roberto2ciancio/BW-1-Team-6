@@ -13,9 +13,23 @@
     </header>
 
     <main>
+
+      <!-- timer container -->
+
+      <div id="timer-container">
+        <div class="cerchio" id="cerchio"></div>
+        <div id="timer">
+          <span></span>
+        </div>
+      </div>
+      <!-- <p>SECONDS REMAINING</p> --> <!-- non so a cosa serviva questo div! l'ho commentato :( -->
+
         <!-- container domanda -->
+
         <div id="question"><h1>DOMANDA</h1></div>
+        
         <!-- container form + inputs + tasto submit se serve -->
+
         <div id="answerContainer">
             <form id="form">
                 <input type="button">
@@ -31,10 +45,13 @@
 
 
     </main>
+
     <!-- footer con punteggio -->
+     
       <footer><p>QUESTION: <span id="score">0 </span><span id="purple">/ 10</span></p> </footer>
     
       
+    <script src="./Script/timer.js"></script>
     <script src="./Script/benchmark.js"></script>
   </body>
 </html>

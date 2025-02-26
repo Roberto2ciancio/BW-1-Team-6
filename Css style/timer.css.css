@@ -37,6 +37,8 @@ body {
     left: 50%; /* Centra orizzontalmente */
     transform: translate(-50%, -50%); /* Centro perfetto */
   }
+
+
   
   /* Bottone posizionato assolutamente in basso */
   #forSubmit {
