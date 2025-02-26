@@ -101,7 +101,7 @@ let timeLeft = 60;
 let countdown;
 const cerchioElement = document.getElementById('cerchio');
 const timerElement = document.getElementById('timer').querySelector('span');
-let selectedIndex = -1; // Aggiungi questa variabile
+let selectedIndex = -1; 
 
 // DOMANDE
 function displayQuestion() {
@@ -149,7 +149,7 @@ function resetTimer() {
     cerchioElement.style.background = `conic-gradient(#4CAF50 360deg, transparent 360deg)`;
 }
 
-// CONTROLLA PULSANTI
+// CONTROLLA PULSANTI E NE RENDO CLICCABILE SOLO 1
 const buttons = document.querySelectorAll('input[name="answer"]');
 buttons.forEach((button, index) => {
     button.addEventListener("click", () => {
@@ -173,14 +173,21 @@ document.getElementById("submit-quiz").addEventListener("click", () => {
             displayQuestion();
             resetTimer();
             startTimer();
-            selectedIndex = -1; // Resetta selectedIndex
+            selectedIndex = -1; // Resetta TIMER
         } else {
             clearInterval(countdown);
             document.getElementById("score").textContent = `RESULT: ${correctAnswersCount} / ${questions.length}`;
+            
+            //SALVO IL RISULTATO
             localStorage.setItem("quizResult", JSON.stringify({
                 correctAnswers: correctAnswersCount,
                 totalQuestions: questions.length
             }));
+            const switchButton = document.getElementById("switch-to-result");
+            switchButton.style.display = "block";
+            switchButton.addEventListener("click", () => {
+                window.location.href = "your_result_page.html"; // Sostituisci con la tua pagina dei risultati
+            });
         }
     }
 });
