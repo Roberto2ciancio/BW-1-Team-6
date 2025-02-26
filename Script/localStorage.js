@@ -25,7 +25,7 @@ window.onload = (event) => {
 
 /* 2) */
 
-window.addEventListener('load', (event) => {
+window.addEventListener('load', (event) => {  // sempre al caricamento della pagina ma con sintassi diversa
     const risultato = localStorage.getItem('score');   
 })
 
