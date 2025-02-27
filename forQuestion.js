@@ -93,7 +93,6 @@ const questions = [
     },
 ];
 
-
 let currentQuestionIndex = 0;
 let selectedAnswers = [];
 let correctAnswersCount = 0;
@@ -101,7 +100,8 @@ let timeLeft = 60;
 let countdown;
 const cerchioElement = document.getElementById('cerchio');
 const timerElement = document.getElementById('timer').querySelector('span');
-let selectedIndex = -1; 
+let selectedIndex = -1;
+let submitClicked = false; // Aggiunta variabile per tracciare il click del submit
 
 // DOMANDE
 function displayQuestion() {
@@ -154,42 +154,59 @@ const buttons = document.querySelectorAll('input[name="answer"]');
 buttons.forEach((button, index) => {
     button.addEventListener("click", () => {
         selectedIndex = index;
+        // Rimuovi la classe 'selected' da tutti i pulsanti
+        buttons.forEach(btn => btn.classList.remove('selected'));
+        // Aggiungi la classe 'selected' al pulsante cliccato
+        button.classList.add('selected');
     });
 });
 
 document.getElementById("submit-quiz").addEventListener("click", () => {
     if (selectedIndex !== -1) {
-        selectedAnswers[currentQuestionIndex] = selectedIndex;
-        if (currentQuestionIndex < questions.length) {
+        if (!submitClicked) {
+            // Primo click: mostra l'alert
+            const currentQuestion = questions[currentQuestionIndex];
+            const allAnswers = [...currentQuestion.incorrect_answers, currentQuestion.correct_answer];
+            const isCorrect = allAnswers[selectedIndex] === currentQuestion.correct_answer;
+            if (isCorrect) {
+                alert("Risposta corretta!");
+            } else {
+                alert("Risposta sbagliata!");
+            }
+            submitClicked = true; // Imposta il flag a true
+        } else {
+            // Secondo click: passa alla domanda successiva
+            selectedAnswers[currentQuestionIndex] = selectedIndex;
             const currentQuestion = questions[currentQuestionIndex];
             const allAnswers = [...currentQuestion.incorrect_answers, currentQuestion.correct_answer];
             if (allAnswers[selectedIndex] === currentQuestion.correct_answer) {
                 correctAnswersCount++;
             }
-        }
 
-        currentQuestionIndex++;
-        if (currentQuestionIndex < questions.length) {
-            displayQuestion();
-            resetTimer();
-            startTimer();
-            selectedIndex = -1; // Resetta TIMER
-        } else {
-            clearInterval(countdown);
-            document.getElementById("score").textContent = `${correctAnswersCount} / ${questions.length}`;  // ho rismosso 'RESULT: ' dallo span, adesso mostra solo il risultato numerico
-            
-            //SALVO IL RISULTATO
-            localStorage.setItem("quizResult", JSON.stringify({
-                correctAnswers: correctAnswersCount,
-                totalQuestions: questions.length
-            }));
-            const switchButton = document.getElementById("switch-to-result");
-            switchButton.style.display = "unset";
-            const SubmitButton = document.getElementById("submit-quiz");
-            SubmitButton.style.display = "none";
-            switchButton.addEventListener("click", () => {
-                window.location.href = "Results.html"; // Sostituisci con la tua pagina dei risultati
-            });
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                displayQuestion();
+                resetTimer();
+                startTimer();
+                buttons.forEach(btn => btn.classList.remove('selected')); // Rimuovi la classe 'selected' da tutti i pulsanti
+                submitClicked = false; // Resetta il flag
+            } else {
+                clearInterval(countdown);
+                document.getElementById("score").textContent = `${correctAnswersCount} / ${questions.length}`;
+
+                //SALVO IL RISULTATO
+                localStorage.setItem("quizResult", JSON.stringify({
+                    correctAnswers: correctAnswersCount,
+                    totalQuestions: questions.length
+                }));
+                const switchButton = document.getElementById("switch-to-result");
+                switchButton.style.display = "unset";
+                const SubmitButton = document.getElementById("submit-quiz");
+                SubmitButton.style.display = "none";
+                switchButton.addEventListener("click", () => {
+                    window.location.href = "Results.html";
+                });
+            }
         }
     }
 });

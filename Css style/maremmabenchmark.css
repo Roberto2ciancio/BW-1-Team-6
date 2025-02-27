@@ -175,3 +175,6 @@ a {
     display: none;
 
 }
+input[type="button"].selected {
+    background-color: #00FFFF;
+}
