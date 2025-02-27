@@ -84,13 +84,32 @@ input {
     color: white;
 }
 
+/* #answer2-label, #answer2-label {
+    width: 300px;
+    height: 30px;
+
+}
+
+label {
+} */
+
 input:hover {
     background-color: #900080;
 } 
 
 input:focus {
     background-color: #900080;
-} 
+}
+
+/* colori feedback */
+
+.corretto {
+    background-color: green;
+}
+
+.sbagliato {
+    background-color: red;
+}
 
 
 /* style tasto submit */
