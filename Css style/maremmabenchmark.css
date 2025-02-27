@@ -43,17 +43,30 @@ h3, label, input, button {
     font-size: 24px;
     font-family: "Outfit", serif;
     font-weight: normal;
+    text-align: center;
+}
+
+span {
+    text-align: center;
 }
 
 
-/*  answer container */
+/*  option container */
 
-#answerContainer {
-    /* width: 80%;
-    text-align: center; */
-    /* background-color: white; */
+#options {
+    /* padding: 30px; */
+    padding-left: 600px;
+    padding-right: 600px;
+    text-align: center;
+}
+
+
+/* #answerContainer {
+    width: 80%;
+    text-align: center;
+    background-color: white;
     padding: 50px;
-}
+} */
 
 
 /* inputs STYLE */
