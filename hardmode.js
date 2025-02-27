@@ -89,10 +89,11 @@ let countdown;
 const cerchioElement = document.getElementById('cerchio');
 const timerElement = document.getElementById('timer').querySelector('span');
 let selectedIndex = -1;
+let submitClicked = false; // Aggiunta variabile per tracciare il click del submit
 
 // DOMANDE
 function displayQuestion() {
-    const question = questionsJavaScriptHard[currentQuestionIndex];
+    const question = questionsJavaScriptHard[currentQuestionIndex]; // CORREZIONE: Usa questionsJavaScriptHard
     document.getElementById("question").textContent = `${question.question}`;
     document.getElementById("score").textContent = `${currentQuestionIndex + 1}`;
 
@@ -141,40 +142,59 @@ const buttons = document.querySelectorAll('input[name="answer"]');
 buttons.forEach((button, index) => {
     button.addEventListener("click", () => {
         selectedIndex = index;
+        // Rimuovi la classe 'selected' da tutti i pulsanti
+        buttons.forEach(btn => btn.classList.remove('selected'));
+        // Aggiungi la classe 'selected' al pulsante cliccato
+        button.classList.add('selected');
     });
 });
 
 document.getElementById("submit-quiz").addEventListener("click", () => {
     if (selectedIndex !== -1) {
-        selectedAnswers[currentQuestionIndex] = selectedIndex;
-        const currentQuestion = questionsJavaScriptHard[currentQuestionIndex];
-        const allAnswers = [...currentQuestion.incorrect_answers, currentQuestion.correct_answer];
-        if (allAnswers[selectedIndex] === currentQuestion.correct_answer) {
-            correctAnswersCount++;
-        }
-
-        currentQuestionIndex++;
-        if (currentQuestionIndex < questionsJavaScriptHard.length) {
-            displayQuestion();
-            resetTimer();
-            startTimer();
-            selectedIndex = -1;
+        if (!submitClicked) {
+            // Primo click: mostra l'alert
+            const currentQuestion = questionsJavaScriptHard[currentQuestionIndex]; // CORREZIONE: Usa questionsJavaScriptHard
+            const allAnswers = [...currentQuestion.incorrect_answers, currentQuestion.correct_answer];
+            const isCorrect = allAnswers[selectedIndex] === currentQuestion.correct_answer;
+            if (isCorrect) {
+                alert("Risposta corretta!");
+            } else {
+                alert("Risposta sbagliata!");
+            }
+            submitClicked = true; // Imposta il flag a true
         } else {
-            clearInterval(countdown);
-            document.getElementById("score").textContent = `${correctAnswersCount} / ${questionsJavaScriptHard.length}`;
+            // Secondo click: passa alla domanda successiva
+            selectedAnswers[currentQuestionIndex] = selectedIndex;
+            const currentQuestion = questionsJavaScriptHard[currentQuestionIndex]; // CORREZIONE: Usa questionsJavaScriptHard
+            const allAnswers = [...currentQuestion.incorrect_answers, currentQuestion.correct_answer];
+            if (allAnswers[selectedIndex] === currentQuestion.correct_answer) {
+                correctAnswersCount++;
+            }
 
-            //SALVO IL RISULTATO
-            localStorage.setItem("quizResult", JSON.stringify({
-                correctAnswers: correctAnswersCount,
-                totalQuestions: questionsJavaScriptHard.length
-            }));
-            const switchButton = document.getElementById("switch-to-result");
-            switchButton.style.display = "unset";
-            const SubmitButton = document.getElementById("submit-quiz");
-            SubmitButton.style.display = "none";
-            switchButton.addEventListener("click", () => {
-                window.location.href = "Results.html";
-            });
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questionsJavaScriptHard.length) { // CORREZIONE: Usa questionsJavaScriptHard
+                displayQuestion();
+                resetTimer();
+                startTimer();
+                buttons.forEach(btn => btn.classList.remove('selected')); // Rimuovi la classe 'selected' da tutti i pulsanti
+                submitClicked = false; // Resetta il flag
+            } else {
+                clearInterval(countdown);
+                document.getElementById("score").textContent = `${correctAnswersCount} / ${questionsJavaScriptHard.length}`; // CORREZIONE: Usa questionsJavaScriptHard
+
+                //SALVO IL RISULTATO
+                localStorage.setItem("quizResult", JSON.stringify({
+                    correctAnswers: correctAnswersCount,
+                    totalQuestions: questionsJavaScriptHard.length // CORREZIONE: Usa questionsJavaScriptHard
+                }));
+                const switchButton = document.getElementById("switch-to-result");
+                switchButton.style.display = "unset";
+                const SubmitButton = document.getElementById("submit-quiz");
+                SubmitButton.style.display = "none";
+                switchButton.addEventListener("click", () => {
+                    window.location.href = "Results.html";
+                });
+            }
         }
     }
 });
