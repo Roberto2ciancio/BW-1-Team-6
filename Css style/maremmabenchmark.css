@@ -35,7 +35,7 @@ main {
 }
 
 h1 {
-    font-size: 60px;
+    font-size: 50px;
     font-family: "Outfit", serif;
 }
 
@@ -72,7 +72,6 @@ span {
 /* inputs STYLE */
 
 
-/*  rimuovere quando necessario dalla linea 62 alla 81, input style verrà sostituida dalla classe .answerButtons creata con JS */
 
 input {
     width: 300px;
@@ -92,27 +91,6 @@ input:hover {
 input:focus {
     background-color: #900080;
 } 
-
-/* rimuovere fino a qui */
-
-.anwserButtons {
-    width: 300px;
-    height: 60px;
-    border-radius: 30px;
-    background-color: transparent;
-    margin: 10px;
-    border-top: 2px solid whitesmoke;
-    border-left: 2px solid whitesmoke;
-    color: white;
-}
-
-.answerButtons:hover {
-    background-color: #900080;
-}
-
-.answerButtons:focus {
-    background-color: #900080;
-}
 
 
 /* style tasto submit */
@@ -173,4 +151,27 @@ footer {
 
 #purple {
     color: #900080;
+}
+
+button {
+    width: 200px;
+    height: 55px;
+    background-color: #900080;
+    /* color: white; */
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    box-shadow: 0 0 25px #900080;
+    cursor: pointer;
+    margin-top: 40px
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+#switch-to-result {
+    display: none;
+
 }

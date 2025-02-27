@@ -176,7 +176,7 @@ document.getElementById("submit-quiz").addEventListener("click", () => {
             selectedIndex = -1; // Resetta TIMER
         } else {
             clearInterval(countdown);
-            document.getElementById("score").textContent = `RESULT: ${correctAnswersCount} / ${questions.length}`;
+            document.getElementById("score").textContent = `${correctAnswersCount} / ${questions.length}`;  // ho rismosso 'RESULT: ' dallo span, adesso mostra solo il risultato numerico
             
             //SALVO IL RISULTATO
             localStorage.setItem("quizResult", JSON.stringify({
@@ -184,9 +184,11 @@ document.getElementById("submit-quiz").addEventListener("click", () => {
                 totalQuestions: questions.length
             }));
             const switchButton = document.getElementById("switch-to-result");
-            switchButton.style.display = "block";
+            switchButton.style.display = "unset";
+            const SubmitButton = document.getElementById("submit-quiz");
+            SubmitButton.style.display = "none";
             switchButton.addEventListener("click", () => {
-                window.location.href = "your_result_page.html"; // Sostituisci con la tua pagina dei risultati
+                window.location.href = "Results.html"; // Sostituisci con la tua pagina dei risultati
             });
         }
     }
