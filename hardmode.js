@@ -109,8 +109,8 @@ function displayQuestion() {
         document.getElementById(`answer1`).value = allAnswers[1];
         document.getElementById(`answer2`).value = allAnswers[2];
         document.getElementById(`answer3`).value = allAnswers[3];
-        document.getElementById(`answer2`).style.display = "block";
-        document.getElementById(`answer3`).style.display = "block";
+        document.getElementById(`answer2`).style.display = "unset";
+        document.getElementById(`answer3`).style.display = "unset";
     }
 }
 
