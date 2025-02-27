@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Benchmark third time the charm</title>
+    <link rel="stylesheet" href="./Css style/maremmabenchmark.css" />
+  </head>
+  <body>
+    <!-- header con logo -->
+    <header id="header container">
+      <img src="./assets/img/assets/epicode_logo.png" alt="Logo epicode" />
+    </header>
+
+    <main>
+      <!-- timer container -->
+
+      <div id="timer-container">
+        <div class="cerchio" id="cerchio"></div>
+        <div id="timer">
+          <span></span>
+        </div>
+      </div>
+      <!-- <p>SECONDS REMAINING</p> -->
+      <!-- non so a cosa serviva questo div! l'ho commentato :( -->
+
+      <!-- container domanda -->
+
+      <div id="quiz-container">
+        <h1 id="question"></h1>
+        <div id="options">
+          <label
+            ><input type="button" name="answer" value="0" id="answer0" /><span
+              id="answer0-label"
+            ></span></label
+          ><br />
+          <label
+            ><input type="button" name="answer" value="1" id="answer1" /><span
+              id="answer1-label"
+            ></span></label
+          ><br />
+          <label
+            ><input type="button" name="answer" value="2" id="answer2" /><span
+              id="answer2-label"
+            ></span></label
+          ><br />
+          <label
+            ><input type="button" name="answer" value="3" id="answer3" /><span
+              id="answer3-label"
+            ></span></label
+          ><br />
+        </div>
+        <div id="submitContainer">
+          <button id="submit-quiz">Submit</button>
+          <button id="switch-to-result">
+            <a href="#Results.html">Check your results!</a>
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <!-- footer con punteggio -->
+
+    <footer>
+      <p>QUESTION: <span id="score"> </span><span id="purple"></span></p>
+    </footer>
+
+    <script src="./hardmode.js"></script>
+  </body>
+</html>
