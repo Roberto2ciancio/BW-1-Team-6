@@ -19,14 +19,14 @@ body {
   
 }
 .logo-container img {
-  width: 10%;
+  width: 13%;
 }
 #container-choose {
   margin-top: 5%;
 }
 button {
-  font-size: 18px;
-  padding: 10px 20px;
+  font-size: 27px;
+  padding: 10px 25px;
   margin: 10px;
   cursor: pointer;
   border-radius: 20px;
@@ -53,4 +53,13 @@ button:hover {
 
 main {
     text-align: center;
+}
+#easy.active,
+#hard.active {
+    background-color: #00FFFF; /* O qualsiasi colore tu voglia */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+}
+
+h1{
+font-size: 3em;
 }

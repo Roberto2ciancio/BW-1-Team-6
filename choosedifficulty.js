@@ -1,23 +1,25 @@
+const easyButton = document.getElementById('easy');
+const hardButton = document.getElementById('hard');
+const easyModeButton = document.getElementById('easy-mode');
+const hardModeButton = document.getElementById('hard-mode');
 
-      const easyButton = document.getElementById('easy');
-      const hardButton = document.getElementById('hard');
-      const easyModeButton = document.getElementById('easy-mode');
-      const hardModeButton = document.getElementById('hard-mode');
+function hideBothButtons() {
+  easyModeButton.style.display = 'none';
+  hardModeButton.style.display = 'none';
+  easyButton.classList.remove('active');
+  hardButton.classList.remove('active');
+}
 
-      function hideBothButtons() {
-        easyModeButton.style.display = 'none';
-        hardModeButton.style.display = 'none';
-      }
-      easyButton.addEventListener('click', () => {
-        hideBothButtons();
-        easyModeButton.style.display = 'block'; 
-      });
+easyButton.addEventListener('click', () => {
+  hideBothButtons();
+  easyModeButton.style.display = 'block';
+  easyButton.classList.add('active');
+});
 
-    
-      hardButton.addEventListener('click', () => {
-        hideBothButtons(); //
-        hardModeButton.style.display = 'block';
-      });
+hardButton.addEventListener('click', () => {
+  hideBothButtons();
+  hardModeButton.style.display = 'block';
+  hardButton.classList.add('active');
+});
 
-      
-      hideBothButtons();
+hideBothButtons();
