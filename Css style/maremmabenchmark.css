@@ -130,7 +130,7 @@ input:focus {
   
   /* Timer al centro del cerchio */
   #timer {
-    font-size: xx-large;
+    font-size: 45px ;
     color: white;
     position: absolute; /* Posiziona il timer all'interno del cerchio */
     top: 50%; /* Centra verticalmente */
