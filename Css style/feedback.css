@@ -73,6 +73,13 @@ h3, label, input, button {
     color: #00FFFF;
 }
 
+/* .stelline > i:hover:before,
+.stelline > i:hover ~ i:before {
+    content: "\2605";
+   position: absolute;
+}
+ */
+
 
 /* feedback form */
 
