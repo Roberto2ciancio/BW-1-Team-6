@@ -164,16 +164,22 @@ buttons.forEach((button, index) => {
 document.getElementById("submit-quiz").addEventListener("click", () => {
     if (selectedIndex !== -1) {
         if (!submitClicked) {
-            // Primo click: mostra l'alert
+            // Primo click: colora la risposta selezionata
             const currentQuestion = questions[currentQuestionIndex];
             const allAnswers = [...currentQuestion.incorrect_answers, currentQuestion.correct_answer];
             const isCorrect = allAnswers[selectedIndex] === currentQuestion.correct_answer;
-            if (isCorrect) {
-                alert("Risposta corretta!");
-            } else {
-                alert("Risposta sbagliata!");
-            }
-            submitClicked = true; // Imposta il flag a true
+            
+            buttons.forEach((btn, index) => {
+                if (allAnswers[index] === currentQuestion.correct_answer) {
+                    btn.style.backgroundColor = "green"; // Colora la risposta corretta di verde
+                    btn.style.color = "white";
+                }
+                if (index === selectedIndex && !isCorrect) {
+                    btn.style.backgroundColor = "red"; // Colora la risposta errata di rosso
+                    btn.style.color = "white";
+                }
+            });
+            submitClicked = true;
         } else {
             // Secondo click: passa alla domanda successiva
             selectedAnswers[currentQuestionIndex] = selectedIndex;
@@ -188,17 +194,22 @@ document.getElementById("submit-quiz").addEventListener("click", () => {
                 displayQuestion();
                 resetTimer();
                 startTimer();
-                buttons.forEach(btn => btn.classList.remove('selected')); // Rimuovi la classe 'selected' da tutti i pulsanti
-                submitClicked = false; // Resetta il flag
+                buttons.forEach(btn => {
+                    btn.classList.remove('selected');
+                    btn.style.backgroundColor = ""; // Resetta il colore
+                    btn.style.color = "";
+                });
+                submitClicked = false;
             } else {
                 clearInterval(countdown);
                 document.getElementById("score").textContent = `${correctAnswersCount} / ${questions.length}`;
-
-                //SALVO IL RISULTATO
+                
+                // SALVO IL RISULTATO
                 localStorage.setItem("quizResult", JSON.stringify({
                     correctAnswers: correctAnswersCount,
                     totalQuestions: questions.length
                 }));
+                
                 const switchButton = document.getElementById("switch-to-result");
                 switchButton.style.display = "unset";
                 const SubmitButton = document.getElementById("submit-quiz");
